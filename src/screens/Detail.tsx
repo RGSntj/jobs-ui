@@ -9,11 +9,14 @@ import {
   ScrollView,
 } from "native-base";
 
+import { useNavigation } from "@react-navigation/native";
+
 import { Feather } from "@expo/vector-icons";
 
 import ImageLogo from "../assets/logo-2.svg";
 
 export function Detail() {
+  const { goBack } = useNavigation();
   const toast = useToast();
 
   return (
@@ -34,7 +37,12 @@ export function Detail() {
             mt="10"
             px="8"
           >
-            <Feather name="arrow-left" size={30} color="white" />
+            <Feather
+              name="arrow-left"
+              size={30}
+              color="white"
+              onPress={() => goBack()}
+            />
             <Feather name="info" size={30} color="white" />
           </HStack>
 
